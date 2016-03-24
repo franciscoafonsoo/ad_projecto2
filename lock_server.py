@@ -50,6 +50,7 @@ while True:
             msg_unp[1] = int(msg_unp[1])
 
         msg_pronta_enviar = lskel.handle(msg_unp)
+
         msg_pronta_enviar = p.dumps(msg_pronta_enviar, -1)
         conn_sock.sendall(msg_pronta_enviar)
         conn_sock.close()
