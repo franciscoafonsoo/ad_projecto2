@@ -16,6 +16,7 @@ def create_tcp_client_socket():
 
 
 def receive_all(soquete, tamanho):
+    # code to receive all the bytes
     comando = ''
     while tamanho > 0:
         parte = soquete.recv(50)
