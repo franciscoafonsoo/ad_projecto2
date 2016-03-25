@@ -14,6 +14,15 @@ import select as sel
 import lock_skel as skel
 
 
+def recvall(soquete, tamanho):
+    comando = ''
+    while tamanho > 0:
+        parte = soquete.recv(50)
+        tamanho = tamanho - sys.getsizeof(parte)
+        comando = comando + parte
+    return comando
+
+
 if len(sys.argv) > 3:
     HOST = ''
     PORT = int(sys.argv[1])
@@ -50,22 +59,36 @@ while True:
                 print "Cliente" + str(conn_sock.getpeername())
                 SocketInput.append(conn_sock)
             else:
-                    msg = sock_utils.receive_all(soquete, 1024)
-                    msg_unp = p.loads(msg)
-                    print 'recebi %s' % msg_unp
-                    msg_unp[1] = int(msg_unp[1])
-                    if len(msg_unp) > 2:
-                        msg_unp[2] = int(msg_unp[2])
-                        msg_unp[1] = int(msg_unp[1])
-
-                    msg_pronta_enviar = lskel.handle(msg_unp)
-
-                    msg_pronta_enviar = p.dumps(msg_pronta_enviar, -1)
-                    soquete.sendall(msg_pronta_enviar)
+                resp = []
+                recvv = soquete.recv(50)
+                if recvv == '':
+                    print 'Client Close' + str(soquete.getpeername())
                     soquete.close()
                     SocketInput.remove(soquete)
+                else:
+                    tamanho = int(p.loads(recvv))
+                    soquete.sendall(p.dumps("SIZEOK", -1))
+                    comando = recvall(soquete, tamanho)
+                    if tamanho == sys.getsizeof(comando):
+                        msg_unp = p.loads(comando)
+                        print 'recebi %s' % msg_unp
+                        msg_unp[1] = int(msg_unp[1])
+                        if len(msg_unp) > 2:
+                            msg_unp[2] = int(msg_unp[2])
+                            msg_unp[1] = int(msg_unp[1])
+
+                        msg_pronta_enviar = lskel.handle(msg_unp)
+                        soquete.sendall(resp)
+                        soquete.close()
+                        SocketInput.remove(soquete)
+                        print 'Pedido Recebido: ' + str(comando)
+                    else:
+                        print 'Erro: Mensagem recebida nao tem o mesmo tamanho da original'
+                        soquete.close()
+                        SocketInput.remove(soquete)
         except IOError:
             soquete.close()
             SocketInput.remove(soquete)
             print "Unexpected error:", sys.exc_info()[0]
+
 sock.close()
