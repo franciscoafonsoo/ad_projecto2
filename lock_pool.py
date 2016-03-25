@@ -4,7 +4,7 @@
 import time as t
 
 
-class resource_lock:
+class ResourceLock:
 
     def __init__(self):
         """
@@ -66,16 +66,16 @@ class resource_lock:
         return self.time_expire
 
 
-class lock_pool:
+class LockPool:
 
-    def __init__(self, N):
+    def __init__(self, n):
         """
         Define um array com um conjunto de locks para N recursos. Os locks podem
         ser manipulados pelos métodos desta classe.
         """
         self.lock_pool_array = []
-        for i in range(N):
-            self.lock_pool_array.append(resource_lock())
+        for i in range(n):
+            self.lock_pool_array.append(ResourceLock())
 
     def clear_expired_locks(self):
         """

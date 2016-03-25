@@ -32,12 +32,14 @@ print "Recursos: " + str(resource_number) + " Tempo: " + str(resource_time)
 
 
 # iniciar o skel
-lskel = skel.lock_stub(resource_number)
+lskel = skel.LockSkel(resource_number)
 
+# iniciar sock e arrays extra
 msgcliente = []
 ret = []
-sock = sock_utils.create_tcp_server_socket(HOST, PORT, 1)
+sock = sock_utils.create_tcp_server_socket(HOST, PORT, 5)
 
+# variaveis para select
 SocketInput = [sock]
 SocketOutput = []
 
@@ -68,11 +70,11 @@ while True:
                             msg_unp[2] = int(msg_unp[2])
                             msg_unp[1] = int(msg_unp[1])
 
-                        msg_pronta_enviar = lskel.handle(msg_unp)
+                        resp = lskel.handle(msg_unp)
                         soquete.sendall(resp)
+                        print 'enviei %s' % resp
                         soquete.close()
                         SocketInput.remove(soquete)
-                        print 'Pedido Recebido: ' + str(comando)
                     else:
                         print 'Erro: Mensagem recebida nao tem o mesmo tamanho da original'
                         soquete.close()

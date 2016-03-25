@@ -3,18 +3,41 @@
 
 # refazer
 
+import net_client
+import pickle as p
 
-class lock_stub:
 
-    def __init__(self):
+class LockStub:
+
+    def __init__(self, address, port):
         self.commands = ["LOCK", "RELEASE", "TEST", "STATS", "EXIT"]
         self.id_commands = ["LOCK", "RELEASE"]
+        self.nt = net_client.NetClient(address, port)
+        self.nt.connect()
 
-    def handle(self, cms):
-        cms = 0
+    def lock(self, cms):
+        cms[0] = '10'
 
-    def send(self, cms):
-        cms = 0
+        msg = p.dumps(cms, -1)
+        return self.nt.send_receive(msg)
 
-    def receive(self, cms):
-        cms = 0
+    def release(self, cms):
+        cms[0] = '10'
+
+        msg = p.dumps(cms, -1)
+        return self.nt.send_receive(msg)
+
+    def test(self, cms):
+        cms[0] = '10'
+
+        msg = p.dumps(cms, -1)
+        return self.nt.send_receive(msg)
+
+    def stats(self, cms):
+        cms[0] = '10'
+
+        msg = p.dumps(cms, -1)
+        return self.nt.send_receive(msg)
+
+    def close(self):
+        self.nt.close()

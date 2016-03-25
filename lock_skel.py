@@ -6,11 +6,11 @@ import pickle as p
 import time as t
 
 
-class lock_stub:
+class LockSkel:
 
     def __init__(self, rs):
         self.rs = rs
-        self.lp = l.lock_pool(rs)
+        self.lp = l.LockPool(rs)
 
     def handle(self, cms):
 

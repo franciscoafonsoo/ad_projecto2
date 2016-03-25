@@ -9,11 +9,12 @@ Números de aluno:
 
 import sock_utils as s
 import pickle as p
+import sys
 
 # definição da classe server
 
 
-class server:
+class NetClient:
     """
     Classe para abstrair uma ligação a um servidor TCP. Implementa métodos
     para estabelecer a ligação, para envio de um comando e receção da resposta,
@@ -35,11 +36,23 @@ class server:
     def send_receive(self, data):
         """
         Envia os dados contidos em data para a socket da ligação, e retorna a
-        resposta recebida pela mesma socket.
+        resposta recebida pela mesma socket. aplied to client
         """
-        self.client_sock.sendall(p.dumps(data))
-        temp = s.receive_all(self.client_sock, 1024)
-        return p.loads(temp)
+
+        print self.client_sock.getpeername()
+        test = sys.getsizeof(data)
+        test = str(test)
+
+        tamanho = p.dumps(test, -1)
+        self.client_sock.send(tamanho)
+        p.loads(self.client_sock.recv(1024))
+        self.client_sock.send(data)
+
+        resposta = self.client_sock.recv(2048)
+
+        msg = p.loads(resposta)
+
+        return msg
 
     def close(self):
         """
