@@ -4,6 +4,7 @@
     <list default="true" id="b98de394-d2a9-4a3b-8822-7ff4509b95cb" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lock_server.py" afterPath="$PROJECT_DIR$/lock_server.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sock_utils.py" afterPath="$PROJECT_DIR$/sock_utils.py" />
     </list>
     <ignored path="fodasse2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,11 +48,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lock_server.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="lock_server.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lock_server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1559">
-              <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+            <state relative-caret-position="1530">
+              <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
               <folding>
                 <element signature="e#158#168#0" expanded="true" />
               </folding>
@@ -93,12 +94,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sock_utils.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="sock_utils.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sock_utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="432">
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#18#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -119,13 +122,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/servidor.py" />
-        <option value="$PROJECT_DIR$/sock_utils.py" />
         <option value="$PROJECT_DIR$/net_client.py" />
         <option value="$PROJECT_DIR$/lock_skel.py" />
         <option value="$PROJECT_DIR$/lock_stub.py" />
         <option value="$PROJECT_DIR$/lock_client.py" />
         <option value="$PROJECT_DIR$/lock_pool.py" />
         <option value="$PROJECT_DIR$/lock_server.py" />
+        <option value="$PROJECT_DIR$/sock_utils.py" />
       </list>
     </option>
   </component>
@@ -438,7 +441,14 @@
       <option name="project" value="LOCAL" />
       <updated>1458922788986</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="sizeof das mensagens">
+      <created>1458924644781</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1458924644781</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -471,7 +481,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="multi client using select" />
-    <option name="LAST_COMMIT_MESSAGE" value="multi client using select" />
+    <MESSAGE value="sizeof das mensagens" />
+    <option name="LAST_COMMIT_MESSAGE" value="sizeof das mensagens" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -538,7 +549,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="18" selection-start-line="0" selection-start-column="18" selection-end-line="0" selection-end-column="18" />
-          <folding />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -572,14 +585,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sock_utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lock_pool.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-475">
@@ -600,10 +605,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lock_server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1559">
-          <caret line="94" column="0" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+        <state relative-caret-position="1530">
+          <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
           <folding>
             <element signature="e#158#168#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sock_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>

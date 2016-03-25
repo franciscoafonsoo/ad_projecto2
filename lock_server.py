@@ -14,15 +14,6 @@ import select as sel
 import lock_skel as skel
 
 
-def recvall(soquete, tamanho):
-    comando = ''
-    while tamanho > 0:
-        parte = soquete.recv(50)
-        tamanho = tamanho - sys.getsizeof(parte)
-        comando = comando + parte
-    return comando
-
-
 if len(sys.argv) > 3:
     HOST = ''
     PORT = int(sys.argv[1])
@@ -68,7 +59,7 @@ while True:
                 else:
                     tamanho = int(p.loads(recvv))
                     soquete.sendall(p.dumps("SIZEOK", -1))
-                    comando = recvall(soquete, tamanho)
+                    comando = sock_utils.receive_all(soquete, tamanho)
                     if tamanho == sys.getsizeof(comando):
                         msg_unp = p.loads(comando)
                         print 'recebi %s' % msg_unp

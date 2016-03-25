@@ -1,4 +1,5 @@
 import socket as s
+import sys
 
 
 def create_tcp_server_socket(address, port, queue_size):
@@ -14,5 +15,10 @@ def create_tcp_client_socket():
     return sock
 
 
-def receive_all(socket, length):
-    return socket.recv(length)
+def receive_all(soquete, tamanho):
+    comando = ''
+    while tamanho > 0:
+        parte = soquete.recv(50)
+        tamanho = tamanho - sys.getsizeof(parte)
+        comando = comando + parte
+    return comando
