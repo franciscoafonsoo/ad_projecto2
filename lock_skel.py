@@ -16,13 +16,13 @@ class LockSkel:
 
         self.lp.clear_expired_locks()
 
-        if cms[0] == 'LOCK':
+        if cms[0] == '10':
             msg = self.lock(cms)
-        elif cms[0] == 'RELEASE':
+        elif cms[0] == '20':
             msg = self.release(cms)
-        elif cms[0] == 'TEST':
+        elif cms[0] == '30':
             msg = self.test(cms)
-        elif cms[0] == 'STATS':
+        elif cms[0] == '40':
             msg = self.stats(cms)
         else:
             print "ERROR"

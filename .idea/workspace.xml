@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b98de394-d2a9-4a3b-8822-7ff4509b95cb" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lock_client.py" afterPath="$PROJECT_DIR$/lock_client.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lock_pool.py" afterPath="$PROJECT_DIR$/lock_pool.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lock_server.py" afterPath="$PROJECT_DIR$/lock_server.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lock_skel.py" afterPath="$PROJECT_DIR$/lock_skel.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lock_stub.py" afterPath="$PROJECT_DIR$/lock_stub.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/net_client.py" afterPath="$PROJECT_DIR$/net_client.py" />
     </list>
     <ignored path="fodasse2.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -43,8 +38,8 @@
       <file leaf-file-name="lock_skel.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lock_skel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+            <state relative-caret-position="-313">
+              <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
               <folding>
                 <element signature="e#43#64#0" expanded="true" />
               </folding>
@@ -52,10 +47,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="lock_server.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="lock_server.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lock_server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
+            <state relative-caret-position="-360">
               <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
               <folding>
                 <element signature="e#158#168#0" expanded="true" />
@@ -100,7 +95,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="sock_utils.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="sock_utils.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/sock_utils.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="324">
@@ -133,8 +128,8 @@
         <option value="$PROJECT_DIR$/lock_stub.py" />
         <option value="$PROJECT_DIR$/lock_client.py" />
         <option value="$PROJECT_DIR$/lock_server.py" />
-        <option value="$PROJECT_DIR$/lock_skel.py" />
         <option value="$PROJECT_DIR$/lock_pool.py" />
+        <option value="$PROJECT_DIR$/lock_skel.py" />
       </list>
     </option>
   </component>
@@ -468,14 +463,21 @@
       <option name="project" value="LOCAL" />
       <updated>1458925624759</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="acho que ta o projecto feito">
+      <created>1458937927022</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1458937927022</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15885799" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -504,7 +506,8 @@
     <MESSAGE value="sizeof das mensagens" />
     <MESSAGE value="sizeof das mensagens pt2" />
     <MESSAGE value="sizeof das mensagens pt3" />
-    <option name="LAST_COMMIT_MESSAGE" value="sizeof das mensagens pt3" />
+    <MESSAGE value="acho que ta o projecto feito" />
+    <option name="LAST_COMMIT_MESSAGE" value="acho que ta o projecto feito" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -581,34 +584,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/servidor.py" />
     <entry file="file://$PROJECT_DIR$/cliente.py" />
-    <entry file="file://$PROJECT_DIR$/lock_pool.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1494">
-          <caret line="83" column="33" selection-start-line="83" selection-start-column="33" selection-end-line="83" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lock_skel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="e#43#64#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lock_server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <element signature="e#158#168#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/net_client.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="576">
@@ -629,6 +604,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/sock_utils.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/lock_client.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="432">
@@ -639,12 +624,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sock_utils.py">
+    <entry file="file://$PROJECT_DIR$/lock_pool.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
+        <state relative-caret-position="1494">
+          <caret line="83" column="33" selection-start-line="83" selection-start-column="33" selection-end-line="83" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lock_skel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-313">
+          <caret line="8" column="15" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="15" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#43#64#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lock_server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-360">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding>
+            <element signature="e#158#168#0" expanded="true" />
           </folding>
         </state>
       </provider>
