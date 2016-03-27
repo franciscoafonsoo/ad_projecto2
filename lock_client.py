@@ -8,7 +8,19 @@ Números de aluno:
 # Zona para fazer imports
 
 import sys
+import signal
 import lock_stub as ls
+
+
+def handler(signum, frame):
+    print ""
+    print 'closing socket and program...'
+    lstub.close()
+    sys.exit()
+
+# Control + z handler
+
+signal.signal(signal.SIGTSTP, handler)
 
 # Programa principal
 
@@ -23,38 +35,44 @@ if len(sys.argv) > 3:
 
     lstub = ls.LockStub(HOST, PORT)
 
-    while True:
-        msg = raw_input("Comando: ")
-        msg = msg.split(" ")
+    try:
+        while True:
+            msg = raw_input("Comando: ")
+            msg = msg.split(" ")
 
-        # verificacao do comando
+            # verificacao do comando
 
-        if msg[0] == "EXIT":
-            sys.exit()
+            if msg[0] == "EXIT":
+                sys.exit()
 
-        if msg[0] in client_id_commands and len(msg) == 2:
-            msg.insert(1, ID)
-            print msg
+            if msg[0] in client_id_commands and len(msg) == 2:
+                msg.insert(1, ID)
+                print msg
 
-        if msg[0] in client_commands and len(msg) > 1:
+            if msg[0] in client_commands and len(msg) > 1:
 
-            resposta = ''
+                resposta = ''
 
-            if msg[0] == 'LOCK':
-                resposta = lstub.lock(msg)
+                if msg[0] == 'LOCK':
+                    resposta = lstub.lock(msg)
 
-            elif msg[0] == 'RELEASE':
-                resposta = lstub.release(msg)
+                elif msg[0] == 'RELEASE':
+                    resposta = lstub.release(msg)
 
-            elif msg[0] == 'TEST':
-                resposta = lstub.test(msg)
+                elif msg[0] == 'TEST':
+                    resposta = lstub.test(msg)
 
-            elif msg[0] == 'STATS':
-                resposta = lstub.stats(msg)
+                elif msg[0] == 'STATS':
+                    resposta = lstub.stats(msg)
 
-            print 'Pedido Recebido: %s' % str(resposta)
-            print ""
-        else:
-            "Comando estranho"
+                print 'Pedido Recebido: %s' % str(resposta)
+                print ""
+            else:
+                "Comando estranho"
+    except KeyboardInterrupt:
+        print ""
+        print 'closing socket and program...'
+        lstub.close()
+        sys.exit()
 else:
     print "Sem argumentos ou argumentos incompletos"

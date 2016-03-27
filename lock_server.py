@@ -8,11 +8,22 @@ Números de aluno:
 
 # Zona para fazer importação
 import sys
+import signal
 import sock_utils
 import pickle as p
 import select as sel
 import lock_skel as skel
 
+
+def handler(signum, frame):
+    print ""
+    print 'closing socket and program...'
+    sock.close()
+    sys.exit()
+
+
+# Control + z handler
+signal.signal(signal.SIGTSTP, handler)
 
 if len(sys.argv) > 3:
     HOST = ''
@@ -44,41 +55,46 @@ SocketInput = [sock]
 SocketOutput = []
 
 while True:
-    R, W, X = sel.select(SocketInput, SocketOutput, [])
-    for soquete in R:
-        try:
-            if soquete is sock:
-                (conn_sock, addr) = sock.accept()
-                print "Cliente" + str(conn_sock.getpeername())
-                SocketInput.append(conn_sock)
-            else:
-                resp = []
-                recvv = soquete.recv(50)
-                if recvv == '':
-                    print 'Client Close' + str(soquete.getpeername())
-                    soquete.close()
-                    SocketInput.remove(soquete)
+    try:
+        R, W, X = sel.select(SocketInput, SocketOutput, [])
+        for soquete in R:
+            try:
+                if soquete is sock:
+                    (conn_sock, addr) = sock.accept()
+                    print "Cliente" + str(conn_sock.getpeername())
+                    SocketInput.append(conn_sock)
                 else:
-                    tamanho = int(p.loads(recvv))
-                    soquete.sendall(p.dumps("SIZEOK", -1))
-                    comando = sock_utils.receive_all(soquete, tamanho)
-                    if tamanho == sys.getsizeof(comando):
-                        msg_unp = p.loads(comando)
-                        print 'Pedido Recebido: ' + str(msg_unp)
-                        print ""
-                        msg_unp[1] = int(msg_unp[1])
-                        if len(msg_unp) > 2:
-                            msg_unp[2] = int(msg_unp[2])
-                            msg_unp[1] = int(msg_unp[1])
-
-                        resp = lskel.handle(msg_unp)
-                        soquete.sendall(resp)
-                    else:
-                        print 'Erro: Mensagem recebida nao tem o mesmo tamanho da original'
+                    resp = []
+                    recvv = soquete.recv(50)
+                    if recvv == '':
+                        print 'Client Close' + str(soquete.getpeername())
                         soquete.close()
                         SocketInput.remove(soquete)
-        except IOError:
-            soquete.close()
-            SocketInput.remove(soquete)
-            print "Unexpected error:", sys.exc_info()[0]
+                    else:
+                        tamanho = int(p.loads(recvv))
+                        soquete.sendall(p.dumps("SIZEOK", -1))
+                        comando = sock_utils.receive_all(soquete, tamanho)
+                        if tamanho == sys.getsizeof(comando):
+                            msg_unp = p.loads(comando)
+                            print 'Pedido Recebido: ' + str(msg_unp)
+                            print ""
+                            msg_unp[1] = int(msg_unp[1])
+                            if len(msg_unp) > 2:
+                                msg_unp[2] = int(msg_unp[2])
+                                msg_unp[1] = int(msg_unp[1])
+
+                            resp = lskel.handle(msg_unp)
+                            soquete.sendall(resp)
+                        else:
+                            print 'Erro: Mensagem recebida nao tem o mesmo tamanho da original'
+                            soquete.close()
+                            SocketInput.remove(soquete)
+            except IOError:
+                soquete.close()
+                SocketInput.remove(soquete)
+                print "Unexpected error:", sys.exc_info()[0]
+    except KeyboardInterrupt:
+        print 'closing socket and program...'
+        sock.close()
+        sys.exit()
 sock.close()
