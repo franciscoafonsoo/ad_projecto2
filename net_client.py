@@ -1,11 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-Aplicações distribuídas - Projeto 1 - net_client.py
-Grupo:
-Números de aluno:
+Aplicações distribuídas - Projeto 1 - lock_client.py
+Grupo: 25
+Números de aluno: 44314, 43551, 44285
 """
-
-# zona para fazer importação
+# Zona para fazer imports
 
 import sock_utils as s
 import pickle as p

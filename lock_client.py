@@ -2,8 +2,8 @@
 # -*- coding: utf-8 -*-
 """
 Aplicações distribuídas - Projeto 1 - lock_client.py
-Grupo:
-Números de aluno:
+Grupo: 25
+Números de aluno: 44314, 43551, 44285
 """
 # Zona para fazer imports
 

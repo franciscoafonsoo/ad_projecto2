@@ -1,7 +1,11 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-
-# refazer
+"""
+Aplicações distribuídas - Projeto 1 - lock_client.py
+Grupo: 25
+Números de aluno: 44314, 43551, 44285
+"""
+# Zona para fazer imports
 
 import net_client
 import pickle as p
