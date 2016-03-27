@@ -44,9 +44,11 @@ class LockSkel:
                 msg.append('False')
 
         except IndexError:
-            msg.append('NOK - IndexError')
+            msg.append('NOK')
+            print 'skel - IndexError'
         except UnboundLocalError:
-            msg.append('NOK - UnboundLocalError')
+            msg.append('NOK')
+            print 'skel - UnboundLocalError'
         return msg
 
     def release(self, cms):
@@ -63,9 +65,11 @@ class LockSkel:
                 msg.append('False')
 
         except IndexError:
-            msg.append('NOK - IndexError')
+            msg.append('NOK')
+            print 'skel - IndexError'
         except UnboundLocalError:
-            msg.append('NOK - UnboundLocalError')
+            msg.append('NOK')
+            print 'skel - UnboundLocalError'
         return msg
 
     def test(self, cms):
@@ -83,9 +87,11 @@ class LockSkel:
                 msg.append('False')
 
         except IndexError:
-            msg.append('NOK - IndexError')
+            msg.append('NOK')
+            print 'skel - IndexError'
         except UnboundLocalError:
-            msg.append('NOK - UnboundLocalError')
+            msg.append('NOK')
+            print 'skel - UnboundLocalError'
 
         return msg
 
@@ -101,8 +107,10 @@ class LockSkel:
                 msg.append(self.lp.stat(cms[1]))
 
         except IndexError:
-            msg.append('NOK - IndexError')
+            msg.append('NOK')
+            print 'skel - IndexError'
         except UnboundLocalError:
-            msg.append('NOK - UnboundLocalError')
+            msg.append('NOK')
+            print 'skel - UnboundLocalError'
 
         return msg
