@@ -38,8 +38,6 @@ class NetClient:
         Envia os dados contidos em data para a socket da ligação, e retorna a
         resposta recebida pela mesma socket. aplied to client
         """
-
-        print self.client_sock.getpeername()
         test = sys.getsizeof(data)
         test = str(test)
 

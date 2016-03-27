@@ -22,19 +22,19 @@ class LockStub:
         return self.nt.send_receive(msg)
 
     def release(self, cms):
-        cms[0] = '10'
+        cms[0] = '20'
 
         msg = p.dumps(cms, -1)
         return self.nt.send_receive(msg)
 
     def test(self, cms):
-        cms[0] = '10'
+        cms[0] = '30'
 
         msg = p.dumps(cms, -1)
         return self.nt.send_receive(msg)
 
     def stats(self, cms):
-        cms[0] = '10'
+        cms[0] = '40'
 
         msg = p.dumps(cms, -1)
         return self.nt.send_receive(msg)

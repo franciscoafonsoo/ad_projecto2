@@ -35,8 +35,8 @@ print "Recursos: " + str(resource_number) + " Tempo: " + str(resource_time)
 lskel = skel.LockSkel(resource_number)
 
 # iniciar sock e arrays extra
-msgcliente = []
-ret = []
+# msgcliente = []
+# ret = []
 sock = sock_utils.create_tcp_server_socket(HOST, PORT, 5)
 
 # variaveis para select
@@ -64,7 +64,8 @@ while True:
                     comando = sock_utils.receive_all(soquete, tamanho)
                     if tamanho == sys.getsizeof(comando):
                         msg_unp = p.loads(comando)
-                        print 'recebi %s' % msg_unp
+                        print 'Pedido Recebido: ' + str(msg_unp)
+                        print ""
                         msg_unp[1] = int(msg_unp[1])
                         if len(msg_unp) > 2:
                             msg_unp[2] = int(msg_unp[2])
@@ -72,7 +73,6 @@ while True:
 
                         resp = lskel.handle(msg_unp)
                         soquete.sendall(resp)
-                        print 'enviei %s' % resp
                         soquete.close()
                         SocketInput.remove(soquete)
                     else:

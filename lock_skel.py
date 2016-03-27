@@ -25,31 +25,57 @@ class LockSkel:
         elif cms[0] == '40':
             msg = self.stats(cms)
         else:
-            print "ERROR"
+            print "Comando Errado"
             msg = "cant do op"
+
         return p.dumps(msg, -1)
 
     def lock(self, cms):
-        if self.lp.lock(cms[1], cms[2], t.time() + self.rs):
-            msg = 'OK'
+
+        msg = list()
+        msg.append('11')
+
+        if cms[2] > self.rs:
+            msg.append('None')
+        elif self.lp.lock(cms[1], cms[2], t.time() + self.rs):
+            msg.append('True')
         else:
-            msg = 'NOK'
+            msg.append('False')
         return msg
 
     def release(self, cms):
-        if self.lp.release(cms[1], cms[2]):
-            msg = 'OK'
+
+        msg = list()
+        msg.append('21')
+
+        if cms[2] > self.rs:
+            msg.append('None')
+        elif self.lp.release(cms[1], cms[2]):
+            msg.append('True')
         else:
-            msg = 'NOK'
+            msg.append('False')
         return msg
 
     def test(self, cms):
-        if self.lp.test(cms[1]):
-            msg = 'LOCKED'
+
+        msg = list()
+        msg.append('31')
+
+        if cms[2] > self.rs:
+            msg.append('None')
+        elif self.lp.test(cms[1]):
+            msg.append('True')
         else:
-            msg = 'UNLOCKED'
+            msg.append('False')
         return msg
 
     def stats(self, cms):
-        msg = self.lp.stat(cms[1])
+
+        msg = list()
+        msg.append('41')
+
+        if cms[2] > self.rs:
+            msg.append('None')
+        else:
+            msg.append(self.lp.stat(cms[1]))
         return msg

@@ -32,10 +32,11 @@ if len(sys.argv) > 3:
         if msg[0] == "EXIT":
             sys.exit()
 
-        elif msg[0] in client_id_commands and len(msg) == 2:
-            msg.append(ID)
+        if msg[0] in client_id_commands and len(msg) == 2:
+            msg.insert(1, ID)
+            print msg
 
-        elif msg[0] in client_commands and len(msg) > 1:
+        if msg[0] in client_commands and len(msg) > 1:
 
             if msg[0] == 'LOCK':
                 resposta = lstub.lock(msg)
@@ -49,9 +50,9 @@ if len(sys.argv) > 3:
             elif msg[0] == 'STATS':
                 resposta = lstub.stats(msg)
 
-            print 'Recebi'
-            lstub.close()
+            print 'Recebi: %s' % str(resposta)
 
+            # lstub.close()
         else:
             "Comando estranho"
 else:
