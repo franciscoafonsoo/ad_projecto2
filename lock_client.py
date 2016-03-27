@@ -38,6 +38,8 @@ if len(sys.argv) > 3:
 
         if msg[0] in client_commands and len(msg) > 1:
 
+            resposta = ''
+
             if msg[0] == 'LOCK':
                 resposta = lstub.lock(msg)
 
@@ -50,9 +52,8 @@ if len(sys.argv) > 3:
             elif msg[0] == 'STATS':
                 resposta = lstub.stats(msg)
 
-            print 'Recebi: %s' % str(resposta)
-
-            # lstub.close()
+            print 'Pedido Recebido: %s' % str(resposta)
+            print ""
         else:
             "Comando estranho"
 else:

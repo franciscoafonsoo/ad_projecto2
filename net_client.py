@@ -40,17 +40,16 @@ class NetClient:
         """
         test = sys.getsizeof(data)
         test = str(test)
-
         tamanho = p.dumps(test, -1)
         self.client_sock.send(tamanho)
-        p.loads(self.client_sock.recv(1024))
-        self.client_sock.send(data)
 
-        resposta = self.client_sock.recv(2048)
+        if p.loads(self.client_sock.recv(2048)) == 'SIZEOK':
 
-        msg = p.loads(resposta)
+            self.client_sock.send(data)
+            resposta = self.client_sock.recv(2048)
+            msg = p.loads(resposta)
 
-        return msg
+            return msg
 
     def close(self):
         """

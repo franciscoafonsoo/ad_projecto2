@@ -61,7 +61,7 @@ class LockSkel:
         msg = list()
         msg.append('31')
 
-        if cms[2] > self.rs:
+        if cms[1] > self.rs:
             msg.append('None')
         elif self.lp.test(cms[1]):
             msg.append('True')
@@ -74,7 +74,7 @@ class LockSkel:
         msg = list()
         msg.append('41')
 
-        if cms[2] > self.rs:
+        if cms[1] > self.rs:
             msg.append('None')
         else:
             msg.append(self.lp.stat(cms[1]))

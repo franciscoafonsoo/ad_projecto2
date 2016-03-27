@@ -10,8 +10,6 @@ import pickle as p
 class LockStub:
 
     def __init__(self, address, port):
-        self.commands = ["LOCK", "RELEASE", "TEST", "STATS", "EXIT"]
-        self.id_commands = ["LOCK", "RELEASE"]
         self.nt = net_client.NetClient(address, port)
         self.nt.connect()
 

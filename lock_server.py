@@ -44,7 +44,7 @@ SocketInput = [sock]
 SocketOutput = []
 
 while True:
-    R, W, X = sel.select(SocketInput, [], [])
+    R, W, X = sel.select(SocketInput, SocketOutput, [])
     for soquete in R:
         try:
             if soquete is sock:
@@ -73,8 +73,6 @@ while True:
 
                         resp = lskel.handle(msg_unp)
                         soquete.sendall(resp)
-                        soquete.close()
-                        SocketInput.remove(soquete)
                     else:
                         print 'Erro: Mensagem recebida nao tem o mesmo tamanho da original'
                         soquete.close()
@@ -83,5 +81,4 @@ while True:
             soquete.close()
             SocketInput.remove(soquete)
             print "Unexpected error:", sys.exc_info()[0]
-
 sock.close()
