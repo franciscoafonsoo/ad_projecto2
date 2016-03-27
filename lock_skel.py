@@ -15,7 +15,7 @@ import time as t
 class LockSkel:
 
     def __init__(self, rs):
-        self.rs = rs
+        self.rs = rs    
         self.lp = l.LockPool(rs)
 
     def handle(self, cms):
