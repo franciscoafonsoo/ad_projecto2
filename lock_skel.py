@@ -35,12 +35,18 @@ class LockSkel:
         msg = list()
         msg.append('11')
 
-        if cms[2] > self.rs:
-            msg.append('None')
-        elif self.lp.lock(cms[1], cms[2], t.time() + self.rs):
-            msg.append('True')
-        else:
-            msg.append('False')
+        try:
+            if cms[2] > self.rs:
+                msg.append('None')
+            elif self.lp.lock(cms[1], cms[2], t.time() + self.rs):
+                msg.append('True')
+            else:
+                msg.append('False')
+
+        except IndexError:
+            msg.append('NOK - IndexError')
+        except UnboundLocalError:
+            msg.append('NOK - UnboundLocalError')
         return msg
 
     def release(self, cms):
@@ -48,12 +54,18 @@ class LockSkel:
         msg = list()
         msg.append('21')
 
-        if cms[2] > self.rs:
-            msg.append('None')
-        elif self.lp.release(cms[1], cms[2]):
-            msg.append('True')
-        else:
-            msg.append('False')
+        try:
+            if cms[2] > self.rs:
+                msg.append('None')
+            elif self.lp.release(cms[1], cms[2]):
+                msg.append('True')
+            else:
+                msg.append('False')
+
+        except IndexError:
+            msg.append('NOK - IndexError')
+        except UnboundLocalError:
+            msg.append('NOK - UnboundLocalError')
         return msg
 
     def test(self, cms):
@@ -61,12 +73,20 @@ class LockSkel:
         msg = list()
         msg.append('31')
 
-        if cms[1] > self.rs:
-            msg.append('None')
-        elif self.lp.test(cms[1]):
-            msg.append('True')
-        else:
-            msg.append('False')
+        try:
+            if cms[1] > self.rs:
+                msg.append('None')
+
+            elif self.lp.test(cms[1]):
+                msg.append('True')
+            else:
+                msg.append('False')
+
+        except IndexError:
+            msg.append('NOK - IndexError')
+        except UnboundLocalError:
+            msg.append('NOK - UnboundLocalError')
+
         return msg
 
     def stats(self, cms):
@@ -74,8 +94,15 @@ class LockSkel:
         msg = list()
         msg.append('41')
 
-        if cms[1] > self.rs:
-            msg.append('None')
-        else:
-            msg.append(self.lp.stat(cms[1]))
+        try:
+            if cms[1] > self.rs:
+                msg.append('None')
+            else:
+                msg.append(self.lp.stat(cms[1]))
+
+        except IndexError:
+            msg.append('NOK - IndexError')
+        except UnboundLocalError:
+            msg.append('NOK - UnboundLocalError')
+
         return msg
