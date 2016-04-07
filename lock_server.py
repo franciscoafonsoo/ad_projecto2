@@ -26,11 +26,17 @@ def handler(signum, frame):
 signal.signal(signal.SIGTSTP, handler)
 
 if len(sys.argv) > 3:
-    HOST = ''
-    PORT = int(sys.argv[1])
-    resource_number = int(sys.argv[2])
-    resource_time = int(sys.argv[3])
-
+    try:
+        HOST = ''
+        PORT = int(sys.argv[1])
+        resource_number = int(sys.argv[2])
+        resource_time = int(sys.argv[3])
+    except:
+        print "Input incorrecto, a usar os parametros padrão"
+        HOST = ''
+        PORT = 9999
+        resource_number = 10
+        resource_time = 10
 else:
     HOST = ''
     PORT = 9999
