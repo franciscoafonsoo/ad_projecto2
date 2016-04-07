@@ -55,7 +55,7 @@ if len(sys.argv) > 3:
             if msg[0] in client_id_commands and len(msg) == 2 and isinstance(msg[:0], (int, long)):
                 msg.insert(1, ID)
 
-            if msg[0] in client_commands and len(msg) > 1and isinstance(msg[:0], (int, long)):
+            if msg[0] in client_commands and len(msg) > 1 and isinstance(msg[:0], (int, long)):
                 resposta = ''
 
                 if msg[0] == 'LOCK':
