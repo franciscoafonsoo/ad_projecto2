@@ -51,10 +51,10 @@ if len(sys.argv) > 3:
             if len(msg) <= 1 or msg[0] not in client_commands:
                 print "verificar comando"
 
-            if msg[0] in client_id_commands and len(msg) == 2:
+            if msg[0] in client_id_commands and len(msg) == 2 and isinstance(msg[:0], (int, long)):
                 msg.insert(1, ID)
 
-            if msg[0] in client_commands and len(msg) > 1:
+            if msg[0] in client_commands and len(msg) > 1and isinstance(msg[:0], (int, long)):
                 resposta = ''
 
                 if msg[0] == 'LOCK':
