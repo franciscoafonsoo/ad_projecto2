@@ -45,12 +45,13 @@ if len(sys.argv) > 3:
             if msg[0] == "EXIT":
                 sys.exit()
 
+            if len(msg) <= 1 or msg[0] not in client_commands:
+                print "verificar comando"
+
             if msg[0] in client_id_commands and len(msg) == 2:
                 msg.insert(1, ID)
-                print msg
 
             if msg[0] in client_commands and len(msg) > 1:
-
                 resposta = ''
 
                 if msg[0] == 'LOCK':
@@ -67,8 +68,6 @@ if len(sys.argv) > 3:
 
                 print 'Pedido Recebido: %s' % str(resposta)
                 print ""
-            else:
-                "Comando estranho"
     except KeyboardInterrupt:
         print ""
         print 'closing socket and program...'
