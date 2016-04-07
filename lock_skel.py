@@ -44,7 +44,7 @@ class LockSkel:
         try:
             if cms[2] > self.rs:
                 msg.append('None')
-            elif self.lp.lock(cms[1], cms[2], t.time() + self.rs):
+            elif self.lp.lock(cms[2], cms[1], t.time() + self.rs):
                 msg.append('True')
             else:
                 msg.append('False')
@@ -65,7 +65,7 @@ class LockSkel:
         try:
             if cms[2] > self.rs:
                 msg.append('None')
-            elif self.lp.release(cms[1], cms[2]):
+            elif self.lp.release(cms[2], cms[1]):
                 msg.append('True')
             else:
                 msg.append('False')
