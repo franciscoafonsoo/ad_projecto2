@@ -29,9 +29,12 @@ client_id_commands = ["LOCK", "RELEASE"]
 
 
 if len(sys.argv) > 3:
-    HOST = sys.argv[1]
-    PORT = int(sys.argv[2])
-    ID = int(sys.argv[3])
+    try:
+        HOST = sys.argv[1]
+        PORT = int(sys.argv[2])
+        ID = int(sys.argv[3])
+    except:
+        sys.exit()
 
     lstub = ls.LockStub(HOST, PORT)
 
