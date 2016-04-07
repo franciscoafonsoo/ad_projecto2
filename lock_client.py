@@ -49,13 +49,14 @@ if len(sys.argv) > 3:
             if msg[0] == "EXIT":
                 sys.exit()
 
-            if len(msg) <= 1 or msg[0] not in client_commands:
+            if len(msg) <= 1 or msg[0] not in client_commands or not isinstance(msg[:0], (int, long)):
                 print "verificar comando"
+                continue
 
-            if msg[0] in client_id_commands and len(msg) == 2 and isinstance(msg[:0], (int, long)):
+            if msg[0] in client_id_commands and len(msg) == 2:
                 msg.insert(1, ID)
 
-            if msg[0] in client_commands and len(msg) > 1 and isinstance(msg[:0], (int, long)):
+            if msg[0] in client_commands and len(msg) > 1:
                 resposta = ''
 
                 if msg[0] == 'LOCK':
