@@ -34,6 +34,7 @@ if len(sys.argv) > 3:
         PORT = int(sys.argv[2])
         ID = int(sys.argv[3])
     except:
+        print "Parametros Incorretos"
         sys.exit()
 
     lstub = ls.LockStub(HOST, PORT)
