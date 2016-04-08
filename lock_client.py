@@ -43,20 +43,28 @@ if len(sys.argv) > 3:
         while True:
             msg = raw_input("Comando: ")
             msg = msg.split(" ")
+            
+            try:
+                for index, arg in enumerate(msg):
+                    if msg[index] not in client_commands:
+                        msg[index] = int(msg[index])
+            except:
+                print "String nos argumentos sem ser no comando!"
+                continue
 
             # verificacao do comando
 
             if msg[0] == "EXIT":
                 sys.exit()
 
-            if len(msg) <= 1 or msg[0] not in client_commands or not isinstance(msg[:0], (int, long)):
+            if len(msg) <= 1 or msg[0] not in client_commands:
                 print "verificar comando"
                 continue
 
             if msg[0] in client_id_commands and len(msg) == 2:
                 msg.insert(1, ID)
 
-            if msg[0] in client_commands and len(msg) > 1:
+            if msg[0] in client_commands and len(msg) > 1 and len(msg) <= 3:
                 resposta = ''
 
                 if msg[0] == 'LOCK':
@@ -73,6 +81,9 @@ if len(sys.argv) > 3:
 
                 print 'Pedido Recebido: %s' % str(resposta)
                 print ""
+            else:
+                print "O comando foi mal feito."
+                continue
     except KeyboardInterrupt:
         print ""
         print 'closing socket and program...'
