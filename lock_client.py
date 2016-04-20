@@ -33,7 +33,7 @@ if len(sys.argv) > 3:
         HOST = sys.argv[1]
         PORT = int(sys.argv[2])
         ID = int(sys.argv[3])
-    except:
+    except TypeError:
         print "Parametros Incorretos"
         sys.exit()
 
@@ -64,23 +64,27 @@ if len(sys.argv) > 3:
             if msg[0] in client_id_commands and len(msg) == 2:
                 msg.insert(1, ID)
 
-            if msg[0] in client_commands and len(msg) > 1 and len(msg) <= 3:
-                resposta = ''
+            if msg[0] in client_commands and len(msg) > 1:
+                if len(msg) <= 3:
+                    resposta = ''
 
-                if msg[0] == 'LOCK':
-                    resposta = lstub.lock(msg)
+                    if msg[0] == 'LOCK':
+                        resposta = lstub.lock(msg)
 
-                elif msg[0] == 'RELEASE':
-                    resposta = lstub.release(msg)
+                    elif msg[0] == 'RELEASE':
+                        resposta = lstub.release(msg)
 
-                elif msg[0] == 'TEST':
-                    resposta = lstub.test(msg)
+                    elif msg[0] == 'TEST':
+                        resposta = lstub.test(msg)
 
-                elif msg[0] == 'STATS':
-                    resposta = lstub.stats(msg)
+                    elif msg[0] == 'STATS':
+                        resposta = lstub.stats(msg)
 
-                print 'Pedido Recebido: %s' % str(resposta)
-                print ""
+                    print 'Pedido Recebido: %s' % str(resposta)
+                    print ""
+                else:
+                    print "O comando foi mal feito."
+                    continue
             else:
                 print "O comando foi mal feito."
                 continue
