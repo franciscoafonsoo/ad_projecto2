@@ -1,10 +1,10 @@
 Projeto de Aplicações Distribuidas do grupo 025
 
-Francisco Pires, nº44314
-Alexandre Machado nº43551
-Nuno Silva, nº44285
+Francisco Pires, nº44***
+Alexandre Machado nº43***
+Nuno Silva, nº44***
 
------------------- Primeira Entrega ------------------
+        ------------------ Segunda Entrega ------------------
 
 Ficheiros pertencentes a entrega:
 lock_pool.py
