@@ -1,6 +1,6 @@
 Projeto de Aplicações Distribuidas do grupo 025
 
-Francisco Pires;
+Francisco Pires
 Alexandre Machado
 Nuno Silva
 
